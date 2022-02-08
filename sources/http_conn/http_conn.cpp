@@ -12,7 +12,7 @@ int HttpConn::epfd = -1;
 Router *HttpConn::root = nullptr;
 
 void HttpConn::init(int fd) {
-    Debug("%d", fd);
+    Debug("HttpConn::connect %d", fd);
     this->fd = fd;
     response.init(fd);
     fcntl(fd, F_SETFL, fcntl(fd, F_GETFL) | O_NONBLOCK);
@@ -22,13 +22,13 @@ void HttpConn::init(int fd) {
 void HttpConn::handle(HTTPCONN_HANDLE httpconn_handle) {
     switch (httpconn_handle) {
         case RECV_REQUEST: {
-            Debug("HttpConn::handle(RECV_REQUEST) is call");
+            Debug("HttpConn::handle(RECV_REQUEST) is call %d", fd);
             read();
             break;
         }
         
         case SEND_RESPONSE: {
-            Debug("HttpConn::handle(SEND_RESPONSE) is call");
+            Debug("HttpConn::handle(SEND_RESPONSE) is call %d", fd);
             write();
             break;
         }
@@ -40,7 +40,7 @@ void HttpConn::handle(HTTPCONN_HANDLE httpconn_handle) {
 }
 
 void HttpConn::disconnect() {
-    Debug("HttpConn::disconnect() is call, %d", fd);
+    Debug("HttpConn::disconnect %d", fd);
     del_fd();
     close(fd);
     fd = -1;

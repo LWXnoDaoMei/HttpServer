@@ -11,7 +11,8 @@
                 "${workspaceFolder}/headers/http_conn/http_request",
                 "${workspaceFolder}/headers/http_conn/http_response",
                 "${workspaceFolder}/headers/router",
-                "${workspaceFolder}/headers/document"
+                "${workspaceFolder}/headers/document",
+                "${workspaceFolder}/headers/router/get_static"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

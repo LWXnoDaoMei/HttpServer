@@ -14,6 +14,8 @@ public:
 
     const char *get_content_type();
 
+    size_t get_memory_size();
+
     ~Document();
 
 private:

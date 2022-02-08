@@ -15,7 +15,7 @@ Document::Document(const char *path) : fd(-1), addr(nullptr) {
     struct stat s;
     int ret = stat(path, &s);
     if (ret == -1 || !S_ISREG(s.st_mode)) return;
-    if ((fd == open(path, O_RDONLY)) == -1) return;
+    if ((fd = open(path, O_RDONLY)) == -1) return;
     memory_size = s.st_size; 
 
     const char *suffix = strrchr(path, '.');
@@ -42,6 +42,10 @@ const char *Document::get_addr(size_t &n, size_t offset) {
 
 const char *Document::get_content_type() {
     return content_type;
+}
+
+size_t Document::get_memory_size() {
+    return memory_size;
 }
 
 Document::~Document() {

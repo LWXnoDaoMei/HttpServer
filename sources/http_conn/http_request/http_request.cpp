@@ -34,7 +34,7 @@ HTTP_REQUEST_CODE HttpRequest::parse(int fd) {
             }
         }
     }    
-    Debug("parse success");
+    Debug("parse success %d", fd);
     return request_code = GET_REQUEST;
 }
 
@@ -86,7 +86,6 @@ bool HttpRequest::read(char *buf, size_t n, int flags) {
     idx = 0;
     while (true) {
         len = recv(fd, buf, n, flags);
-        Debug("HttpRequest::read() : %d", len);
         if (len > 0) return true;
         if (len == 0) {
             line_state = LINE_BAD;
@@ -110,13 +109,11 @@ bool HttpRequest::read(char *buf, size_t n, int flags) {
 
 bool HttpRequest::parse_line() {
     std::string line = get_line();
-    Debug("%s", line.c_str());
     if (line_state == LINE_OPEN) {
         request_code = URL_TOO_LONG;
         return false;
     }
     if (line_state == LINE_BAD) {
-        Debug("find line_state == LINE_BAD, %b", request_code == CLOSED_CONNECTION);
         return false;
     }
 
@@ -137,7 +134,6 @@ bool HttpRequest::parse_line() {
     }
 
     protocol = line.substr(second_space_pos + 1);
-    Debug("%s", protocol.c_str());
     if (protocol != "HTTP/1.1") {
         request_code = PROTOCOL_ERROR;
         Debug("protocol error");
@@ -145,7 +141,7 @@ bool HttpRequest::parse_line() {
     }
 
     url = line.substr(first_space_pos + 1, second_space_pos - first_space_pos - 1);
-    Debug("%s", url.c_str());
+    Debug("%s %d", url.c_str(), fd);
 
     parse_state = PARSE_HEADER;
     return true;

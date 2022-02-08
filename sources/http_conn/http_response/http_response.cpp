@@ -4,6 +4,7 @@
 #include "http_response.h"
 #include "debugger.h"
 #include <sys/socket.h>
+#include <unistd.h>
 #include <cstring>
 
 void HttpResponse::init(int fd) {
@@ -75,14 +76,19 @@ bool HttpResponse::reply_document() {
 }
 
 bool HttpResponse::write(const char *buf, size_t n) {
+    size_t tot_len = n;
     while (n) {
-        int len = send(fd, buf, n, 0);
+        ssize_t len = send(fd, buf + tot_len - n, n, 0);
+        Debug("%d", len);
         if (len == 0) {
             response_code = HTTP_RESPONSE_CODE::CONNECT_CLOSED;
             return false;
         }
         if (len == -1) {
-            if (errno == EINTR || errno == EAGAIN) continue;
+            if (errno == EINTR || errno == EAGAIN) {
+                usleep(20000); 
+                continue;
+            }
             response_code == HTTP_RESPONSE_CODE::SEND_RESPONSE_ERROR;
             Debug("HttpResponse::write() is error, %b", errno == EPIPE);
             return false;
