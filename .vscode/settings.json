@@ -1,9 +1,0 @@
-{
-    "C_Cpp.errorSquiggles": "Enabled",
-    "files.associations": {
-        "exception": "cpp",
-        "cstddef": "cpp",
-        "*.tcc": "cpp",
-        "vector": "cpp"
-    }
-}
