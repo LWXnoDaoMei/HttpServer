@@ -2,6 +2,7 @@
 #define HTTP_SERVER_H
 
 #include "http_conn.h"
+#include "thread_pool.h"
 #include <sys/epoll.h>
 
 typedef short int port_t;
@@ -18,6 +19,8 @@ public:
     void run();
 
 private:
+
+    ThreadPool<HttpConn> *thread_pool;
 
     int epfd = -1, lfd = -1, max_fd_count = 0;
     epoll_event *events;

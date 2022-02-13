@@ -24,6 +24,8 @@ Document::Document(const char *path) : fd(-1), addr(nullptr) {
     else if (!strcmp(suffix, "gif")) content_type = "image/gif";
     else if (!strcmp(suffix, ".html")) content_type = "text/html; charset=utf-8";
     else if (!strcmp(suffix, ".pdf")) content_type = "application/pdf; charset=utf-8";
+    else if (!strcmp(suffix, ".css")) content_type = "text/css";
+    else if (!strcmp(suffix, ".js")) content_type = "text/javascript";
     else content_type = "text/plain; charset=utf-8";
 }
 

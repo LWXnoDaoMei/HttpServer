@@ -43,6 +43,7 @@ HttpServer::HttpServer(ip_t ip, port_t port, int max_fd_count) : max_fd_count(ma
 void HttpServer::init() {
     events = new epoll_event[max_fd_count];
     users = new HttpConn[max_fd_count];
+    thread_pool = new ThreadPool<HttpConn>(5, 40);
 }
 
 void HttpServer::run() {
@@ -61,9 +62,13 @@ void HttpServer::run() {
                 int cfd = accept(lfd, NULL, NULL);
                 users[cfd].init(cfd);
             } else if (flags & EPOLLIN) {
-                users[fd].handle(RECV_REQUEST);
+                users[fd].httpconn_handle = RECV_REQUEST;
+                thread_pool->add_task(users + fd);
+                // users[fd].handle();
             } else if (flags & EPOLLOUT) {
-                users[fd].handle(SEND_RESPONSE); 
+                users[fd].httpconn_handle = SEND_RESPONSE;
+                thread_pool->add_task(users + fd);
+                // users[fd].handle(); 
             } else if (flags & (EPOLLRDHUP | EPOLLHUP | EPOLLERR)) {
                 Debug("disconnect");
                 users[fd].disconnect();
@@ -73,6 +78,7 @@ void HttpServer::run() {
 }
 
 HttpServer::~HttpServer() {
+    delete thread_pool;
     delete[] events;
     delete[] users;
     close(lfd);

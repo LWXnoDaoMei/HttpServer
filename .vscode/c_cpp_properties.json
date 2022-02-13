@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/headers/**",
+                "${workspaceFolder}/headers/http_server/**",
+                "${workspaceFolder}/headers/debug",
+                "${workspaceFolder}/headers/http_conn",
+                "${workspaceFolder}/headers/http_conn/http_request",
+                "${workspaceFolder}/headers/http_conn/http_response",
+                "${workspaceFolder}/headers/router",
+                "${workspaceFolder}/headers/document",
+                "${workspaceFolder}/headers/router/get_static",
+                "${workspaceFolder}/headers/thread_pool"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

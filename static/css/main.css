@@ -1,0 +1,404 @@
+.fuckjump-playground {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    background-color: grey;
+}
+
+.fuckjump-playground > canvas {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fuckjump-settings {
+    width: 100%;
+    height: 100%;
+    /*background-image: url("/static/image/menu/background.gif");*/
+    /*background-image: url("http://101.200.142.161:8000/static/image/playground/background.jpg");*/
+    background-image: url("https://images5.alphacoders.com/909/thumb-1920-909769.png");
+    background-size: 100% 100%;
+    user-select: none;
+}
+
+.fuckjump-settings-login {
+    height: 50vh;
+    width: 20vw;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*background-color: #626671;*/
+    background-color: rgba(98, 102, 113, 0.7);
+    border-radius: 10px;
+}
+
+.fuckjump-settings-register {
+    height: 60vh;
+    width: 20vw;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*background-color: #626671;*/
+    background-color: rgba(98, 102, 113, 0.7);
+    border-radius: 10px;
+}
+
+.fuckjump-settings-title {
+    color: white;
+    font-size: 3vw;
+    text-align: center;
+    padding-top: 3vh;
+    margin-bottom: 2vh;
+}
+
+.fuckjump-settings-username {
+    display: block;
+    height: 9vh;
+}
+
+.fuckjump-settings-password {
+    display: block;
+    height: 9vh;
+}
+
+.fuckjump-settings-submit {
+    display: block;
+    height: 10vh;
+}
+
+.fuckjump-settings-item {
+    width: 100%;
+    height: 100%;
+}
+
+.fuckjump-settings-item > input {
+    width: 90%;
+    line-height: 5vh;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 7px;
+    font-family: console;
+    font-size: 1.1vw;
+}
+
+.fuckjump-settings-item > button {
+    font-family: console,poppin,Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;
+    display: inline-block;
+    padding: 0 30px;
+    height: 6vh;
+    font-size: 1.5vw;
+    cursor: pointer;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #31c27c;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    line-height: 5vh;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fuckjump-settings-item-hover:hover {
+    transform: scale(1.1);
+    transition: 300ms;
+}
+
+.fuckjump-settings-error-message {
+    color: red;
+    font-size: 1vw;
+    display: inline;
+    float: left;
+    padding-left: 1vw;
+}
+
+.fuckjump-settings-option {
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 2vh;
+    font-size: 2.5vh;
+    display: inline;
+    float: right;
+    padding-right: 1vw;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.fuckjump-settings-option:hover {
+    text-decoration: underline;
+}
+
+.fuckjump-menu {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    background-image: url("https://images5.alphacoders.com/899/899677.jpg");
+    background-size: 100% 100%;
+    user-select: none;
+}
+
+.fuckjump-menu-field {
+    width: 36vw;
+    /*margin-top: 20vh;*/
+    /*margin-left: 32vw;
+    margin-right: 32vw;*/
+    position: relative;
+    top: 30vh;
+    left: 32vw;
+}
+
+.fuckjump-menu-field-item {
+    /*position: relative;*/
+    /*top: 3vh;*/
+    color: white;
+    height: 12vh;
+    width: 36vw;
+    font-size: 2.2vw;
+    /*font-style: italic;*/
+    font-style: console;
+    text-align: center;
+    background-color: rgba(39,21,28, 0.6);
+    border-radius: 20vw;
+    letter-spacing: 0.5vw;
+    cursor: pointer;
+    line-height: 11vh;
+}
+
+.fuckjump-menu-field-item:hover {
+    transform: scale(1.1);
+    transition: 300ms;
+}
+
+.fuckjump-playground-menu {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translate(0, -100%);
+    background-color:rgba(255, 255, 255, 0.6);
+}
+
+.fuckjump-playground-menu-field {
+    width: 30vw;
+    height: 40vh;
+    position: relative;
+    left: 35vw;
+    top: 30vh;
+}
+
+.fuckjump-playground-menu-field-item {
+    color: white;
+    height: 12vh;
+    width: 30vw;
+    font-size: 2.2vw;
+    /*font-style: italic;*/
+    font-family: console, consoles;
+    font-style: unset;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 0vw;
+    letter-spacing: 0.5vw;
+    cursor: pointer;
+    line-height: 11vh;
+}
+
+.fuckjump-info_display {
+    width: 12vh;
+    height: 12vh;
+    /*position: relative;*/
+    position: absolute;
+    /*transform: translate(0, -100vh);*/
+    top: 3vh;
+    left: 3vw;
+    user-select: none;
+    /*background-color:rgba(255, 255, 255, 0.9);*/
+}
+
+.fuckjump-info_display-item-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.fuckjump-info_display-item-openid {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 1.1vw;
+}
+
+.fuckjump-info_display-item-photo:hover {
+    transform: scale(1.1);
+    transition: 300ms;
+}
+
+.fuckjump-info_modify {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: white;
+    background-image: url("http://101.200.142.161:8000/static/image/settings/info_modify/background.png");
+    background-size: 100% 100%;
+    user-select: none;
+}
+
+.fuckjump-info_modify-field {
+    position: relative;
+    /*width: 18vw;*/
+    width: 26vw;
+    height: 75vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(98, 102, 113, 0.8);
+}
+
+.fuckjump-info_modify-title {
+    font-size: 3vw;
+    /*
+    padding-top: 3vh;
+    margin-bottom: 3vh;
+    */
+    position: relative;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.fuckjump-info_modify-item {
+    position: relative;
+    top: 3vh;
+    width: 100%;
+    height: 9vh;
+    display: block;
+
+}
+
+.fuckjump-info_modify-item-image {
+    position: relative;
+    top: 3vh;
+    width: 100%;
+    height: 14vh;
+    display: block;
+}
+
+.fuckjump-info_modify-item-photo-display {
+    height: 90%;
+    width: auto;
+    position:  relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.fuckjump-info_modify-item  input {
+    width: 90%;
+    line-height: 5vh;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 7px;
+    font-family: console;
+    font-size: 1.1vw;
+    text-align: center;
+}
+
+.fuckjump-info_modify-item-field-2 {
+    position: absolute;
+    width: 65%;
+    height: 75%;
+    top: 50%;
+    left: 100%;
+    transform: translate(-100%, -50%);
+}
+
+.fuckjump-info_modify-item-field-1 {
+    position: absolute;
+    width: 35%;
+    height: 75%;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+}
+
+.fuckjump-info_modify-item-introduce {
+    text-align: center;
+    line-height: 9vh;
+    position: relative;
+    top: 3vh;
+    width: 100%;
+    height: 9vh;
+    display: block;
+    font-size: 1.4vw;
+}
+
+.fuckjump-info_modify-item-image-introduce {
+    position: relative;
+    top: 3vh;
+    width: 100%;
+    height: 14vh;
+    display: block;
+    line-height: 14vh;
+    text-align: center;
+    font-size: 1.4vw;
+}
+
+.fuckjump-info_modify-button-field {
+    position: relative;
+    width: 100%;
+    height: 14%;
+    top: 98%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
+.fuckjump-info_modify-button-item {
+    height: 100%;
+    width: 100%;
+}
+
+.fuckjump-info_modify-button-item > button {
+    font-family: console,poppin,Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;
+    display: inline-block;
+    padding: 0 30px;
+    height: 80%;
+    font-size: 1.5vw;
+    cursor: pointer;
+    border-radius: 5vw;
+    color: #fff;
+    background-color: #31c27c;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    line-height: 5vh;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fuckjump-info_modify-button-item:hover {
+    transform: scale(1.1);
+    transition: 300ms;
+}
+
+.fuckjump-info_modify-title-field {
+    width: 100%;
+    height: 15%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}

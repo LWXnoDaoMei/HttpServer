@@ -11,9 +11,13 @@ public:
     static int epfd;
     static Router *root;
 
+    int fd = -1;
+
+    HTTPCONN_HANDLE httpconn_handle;
+
     void init(int fd);
 
-    void handle(HTTPCONN_HANDLE httpconn_handle);
+    void handle();
 
     void disconnect();
 
@@ -23,8 +27,6 @@ private:
 
     HttpRequest request;
     HttpResponse response;    
-
-    int fd = -1;
 
     void read();
     

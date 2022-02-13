@@ -19,7 +19,7 @@ void HttpConn::init(int fd) {
     add_fd();
 }
 
-void HttpConn::handle(HTTPCONN_HANDLE httpconn_handle) {
+void HttpConn::handle() {
     switch (httpconn_handle) {
         case RECV_REQUEST: {
             Debug("HttpConn::handle(RECV_REQUEST) is call %d", fd);

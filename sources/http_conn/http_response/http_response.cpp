@@ -79,18 +79,27 @@ bool HttpResponse::write(const char *buf, size_t n) {
     size_t tot_len = n;
     while (n) {
         ssize_t len = send(fd, buf + tot_len - n, n, 0);
-        Debug("%d", len);
         if (len == 0) {
             response_code = HTTP_RESPONSE_CODE::CONNECT_CLOSED;
             return false;
         }
         if (len == -1) {
             if (errno == EINTR || errno == EAGAIN) {
+                static int x = 0;
+                // Debug("%d", ++ x);
+                char c;
+                if (recv(fd, &c, 1, MSG_PEEK) == 0) {
+                    response_code = HTTP_RESPONSE_CODE::CONNECT_CLOSED;
+                    return false;
+                }
                 usleep(20000); 
                 continue;
             }
-            response_code == HTTP_RESPONSE_CODE::SEND_RESPONSE_ERROR;
-            Debug("HttpResponse::write() is error, %b", errno == EPIPE);
+            if (errno = EPIPE) {
+                response_code = HTTP_RESPONSE_CODE::CONNECT_CLOSED;
+                return false;
+            }
+            response_code = HTTP_RESPONSE_CODE::SEND_RESPONSE_ERROR;
             return false;
         }        
         n -= len;

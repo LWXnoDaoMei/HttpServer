@@ -117,9 +117,12 @@ bool HttpRequest::parse_line() {
         return false;
     }
 
+    Debug("%s", line.c_str());
+
     auto first_space_pos = line.find_first_of(' ');
     auto second_space_pos = line.find(' ', first_space_pos + 1);
     if (first_space_pos == std::string::npos || second_space_pos == std::string::npos) {
+        Debug("1");
         request_code = NO_REQUEST;
         return false;
     }
